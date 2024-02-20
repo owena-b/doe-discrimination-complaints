@@ -1,5 +1,5 @@
 # Discrimination complaints filed with the U.S. Department of Education
 
-[Some Python](scrape.py) to scrape and reshape [a table of data](https://ocrcas.ed.gov/open-investigations) on federal discrimination complaints filed against institutions of post-secondary education.
+[Python code](scrape.py) to scrape [a data table](https://ocrcas.ed.gov/open-investigations) containing a list of federal discrimination complaints filed against institutions of post-secondary education.
 
-The script flattens the data into a tidy CSV in which each record is one complaint against one school.
+The program formats the data into a CSV in which each line is one complaint against one school. The code also reformats state and territory abbreviations into their full names.
