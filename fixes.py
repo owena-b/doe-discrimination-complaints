@@ -9,7 +9,7 @@ state_fixes = {
     'CT': 'Connecticut',
     'DE': 'Delaware',
     'DC': 'District of Columbia',
-    'MR': '',
+    'MR': 'Unknown',
     'FL': 'Florida',
     'GA': 'Georgia',
     'GU': 'Guam',
@@ -43,7 +43,7 @@ state_fixes = {
     'OR': 'Oregon',
     'PA': 'Pennsylvania',
     'PR': 'Puerto Rico',
-    'RM': '',
+    'RM': 'Unknown',
     'RI': 'Rhode Island',
     'SC': 'South Carolina',
     'SD': 'South Dakota',
@@ -57,5 +57,5 @@ state_fixes = {
     'WV': 'West Virginia',
     'WI': 'Wisconsin',
     'WY': 'Wyoming',
-    'XX': ''
+    'XX': 'Unknown'
 }

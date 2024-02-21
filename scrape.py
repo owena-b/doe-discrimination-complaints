@@ -11,21 +11,16 @@ payload1 = {'page': 0, 'items_per_page': 1000, 'field_ois_institution_type': 752
 payload2 = {'page': 1, 'items_per_page': 1000, 'field_ois_institution_type': 752}
 payload3 = {'page': 2, 'items_per_page': 1000, 'field_ois_institution_type': 752}
 r1 = requests.get(URL, params=payload1)
-r1.raise_for_status()
 r2 = requests.get(URL, params=payload2)
-r2.raise_for_status()
 r3 = requests.get(URL, params=payload3)
-r3.raise_for_status()
-
-r_list = [r1, r2, r3]
 
 CSV_FILE = 'doe-discrimination-complaints.csv'
 
 CSV_HEADERS = [
     'State',
     'Institution',
-    'Type_of_Discrimination',
-    'Investigation_Start_Date'
+    'Type of Discrimination',
+    'Investigation Open Date'
     ]
 
 table1 = BeautifulSoup(r1.text, 'html.parser').find('table')
@@ -60,8 +55,8 @@ with open(CSV_FILE, 'w', newline='', encoding='utf-8') as outfile:
             writer.writerow({
                 'State': state,
                 'Institution': institution,
-                'Type_of_Discrimination': discrim_type,
-                'Investigation_Start_Date': date
+                'Type of Discrimination': discrim_type,
+                'Investigation Open Date': date
             })
 
 print(f'Wrote {CSV_FILE}')
