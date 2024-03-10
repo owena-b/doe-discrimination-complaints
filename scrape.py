@@ -2,8 +2,11 @@ import requests
 import csv
 from datetime import datetime
 from bs4 import BeautifulSoup
+from datetime import date
 
 from fixes import state_fixes
+
+today = date.today()
 
 URL = 'https://ocrcas.ed.gov/open-investigations'
 
@@ -30,9 +33,10 @@ table3 = BeautifulSoup(r3.text, 'html.parser').find('table')
 table_list = [table1, table2, table3]
 
 with open(CSV_FILE, 'w', newline='', encoding='utf-8') as outfile:
-    writer = csv.DictWriter(outfile, fieldnames=CSV_HEADERS)
+    writer = csv.writer(outfile)
 
-    writer.writeheader()
+    writer.writerow([f'Last updated: {today.strftime("%B %d, %Y")}'])
+    writer.writerow(CSV_HEADERS)
 
     for i in table_list:
         for row in i.find_all('tr')[1:]:
@@ -52,11 +56,6 @@ with open(CSV_FILE, 'w', newline='', encoding='utf-8') as outfile:
                 '%m/%d/%Y'
             ).date().isoformat()
 
-            writer.writerow({
-                'State': state,
-                'Institution': institution,
-                'Type of Discrimination': discrim_type,
-                'Investigation Open Date': date
-            })
+            writer.writerow([state, institution, discrim_type, date])
 
 print(f'Wrote {CSV_FILE}')
