@@ -35,7 +35,7 @@ table_list = [table1, table2, table3]
 with open(CSV_FILE, 'w', newline='', encoding='utf-8') as outfile:
     writer = csv.writer(outfile)
 
-    writer.writerow([f'Last updated: {today.strftime("%B %d, %Y")}'])
+    writer.writerow([f'Last updated: {today.strftime("%B %d, %Y")}', '', '', ''])
     writer.writerow(CSV_HEADERS)
 
     for i in table_list:
